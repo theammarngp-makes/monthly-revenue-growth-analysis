@@ -46,7 +46,7 @@
 
 ---
 
-## 📌 Executive Summary
+##  Executive Summary
 
 Most teams can *pull* a monthly revenue number. Far fewer can answer, on demand and without a spreadsheet scramble: **is growth accelerating, flat, or deteriorating, and was that last bad month a blip or the start of a slide?**
 
@@ -61,26 +61,27 @@ This engagement builds the layer that answers it. A raw 23-row monthly extract i
 | Is recent performance deteriorating? | **Flat.** Last 3 months vs. prior 3 months: **−1.59%**, within normal volatility. |
 | Was the Nov-2017 spike a new baseline? | **No.** It was a one-off; Dec-2017 recorded the series' worst MoM (**−24.05%**). |
 
-📄 Full narrative: [`analysis/executive_summary.md`](analysis/executive_summary.md) · 📕 Executive report: [`reports/executive_report.pdf`](reports/executive_report.pdf)
+ Full narrative: [`analysis/executive_summary.md`](analysis/executive_summary.md) · 
+ Executive report: [`reports/executive_report.pdf`](reports/executive_report.pdf)
 
 ---
 
-## 🧩 Business Problem
+## Business Problem
 
 The business held monthly revenue figures but **no centralized, reliable layer** for tracking growth, spotting momentum changes, or supporting management decisions on demand. This project builds that layer and answers, directly from the data:
 
-- 💰 How much revenue is generated each month, and how is it trending?
-- 📊 How is revenue changing month over month, and year over year where the data allows?
-- 🔍 Which months saw significant growth or decline, and was a decline a single bad month or a genuine multi-month slide?
-- ➕ What is cumulative revenue over the observed period?
-- 🧭 Is the most recent performance improving, flat, or deteriorating?
-- 🎯 Where should management look closer?
+-  How much revenue is generated each month, and how is it trending?
+-  How is revenue changing month over month, and year over year where the data allows?
+-  Which months saw significant growth or decline, and was a decline a single bad month or a genuine multi-month slide?
+-  What is cumulative revenue over the observed period?
+-  Is the most recent performance improving, flat, or deteriorating?
+-  Where should management look closer?
 
 > **Value proposition:** replace ad-hoc "what's our MoM growth?" pulls with one reproducible pipeline, from raw CSV to dashboard-ready metrics, where every number traces back to a single documented definition.
 
 ---
 
-## ⚠️ Scope & Data Gap (Read This First)
+##  Scope & Data Gap (Read This First)
 
 The source extract (`data/raw/monthly_revenue_raw.csv`) contains **exactly two columns**: `sales_month` and `current_month_revenue`. It has **23 rows** at monthly grain, **Oct-2016 through Aug-2018**. There is no order ID, line item, or customer-level data anywhere in the source.
 
@@ -94,7 +95,7 @@ Rather than fabricate an order count, the gap is documented in [`docs/assumption
 
 ---
 
-## 🎯 KPI Framework
+## KPI Framework
 
 | KPI | Definition | Source |
 |---|---|---|
@@ -154,7 +155,7 @@ Full explanation and reproduction steps: [`docs/architecture.md`](docs/architect
 
 > **Transparency note:** these are **static previews rendered from the processed data with matplotlib. They are not Tableau exports.** The interactive Tableau workbook is a manual build, specified field by field in [`dashboard/tableau/README.md`](dashboard/tableau/README.md). Why this matters is documented in [`docs/assumptions.md`](docs/assumptions.md).
 
-📘 Dashboard guide: [`dashboard/README.md`](dashboard/README.md) · 🛠️ Tableau build spec: [`dashboard/tableau/README.md`](dashboard/tableau/README.md) · 🖼️ Preview: [`dashboard/dashboard-preview.png`](dashboard/dashboard-preview.png)
+ Dashboard guide: [`dashboard/README.md`](dashboard/README.md) ·  Tableau build spec: [`dashboard/tableau/README.md`](dashboard/tableau/README.md) ·  Preview: [`dashboard/dashboard-preview.png`](dashboard/dashboard-preview.png)
 
 ---
 
@@ -172,11 +173,12 @@ Full explanation and reproduction steps: [`docs/architecture.md`](docs/architect
 4. **No sustained decline exists anywhere in the data.** The longest consecutive-decline streak across all 23 months is **1 month**, including the most recent month on record (Aug-2018, **−4.00%**, following a positive July).
 5. **Recent performance is flat, not deteriorating.** Last 3 months vs. prior 3 months: **−1.59%**.
 
-📄 Evidence and recommended actions: [`analysis/key_insights.md`](analysis/key_insights.md) · 📕 PDF: [`analysis/key_insights.pdf`](analysis/key_insights.pdf)
+ Evidence and recommended actions: [`analysis/key_insights.md`](analysis/key_insights.md) 
+ PDF: [`analysis/key_insights.pdf`](analysis/key_insights.pdf)
 
 ---
 
-## 🗄️ SQL Engineering
+## SQL Engineering
 
 **23 SQL files** across five layers. Every query carries a purpose comment and, where non-obvious, the reasoning behind a design choice (for example, why month 1 MoM growth is `NULL` rather than `0`).
 
@@ -192,7 +194,7 @@ Full explanation and reproduction steps: [`docs/architecture.md`](docs/architect
 
 ---
 
-## 🐍 Python Validation Layer
+## Python Validation Layer
 
 Five notebooks, each following the same structure: **Purpose → Imports → Data Loading → Analysis → Findings → Conclusion.**
 
@@ -245,7 +247,7 @@ Full set with rationale: [`analysis/business_recommendations.md`](analysis/busin
 
 ---
 
-## 📚 Documentation
+## Documentation
 
 <details>
 <summary><b>Click to expand the documentation inventory</b></summary>
@@ -296,7 +298,7 @@ monthly-revenue-growth-analysis/
 
 ---
 
-## 🚀 How to Run
+## How to Run
 
 ```bash
 # 1. Clone
@@ -327,7 +329,7 @@ Full write-up: [`analysis/methodology.md`](analysis/methodology.md)
 
 ---
 
-## 🚧 Limitations
+## Limitations
 
 - **No order-level data.** Order Count, Order Growth %, and AOV are out of scope.
 - **No causal data** (marketing spend, promotions, seasonality flags). Findings describe *what* happened, never *why*, unless independently confirmed.
@@ -339,7 +341,7 @@ Full detail: [`reports/executive_report.md`](reports/executive_report.md), Secti
 
 ---
 
-## 🛠️ Skills Demonstrated
+## Skills Demonstrated
 
 | Category | Skills |
 |---|---|
@@ -356,10 +358,10 @@ Full detail: [`reports/executive_report.md`](reports/executive_report.md), Secti
 
 This repository is **Project 4** of a four-project Business Intelligence suite built on the same descriptive-to-diagnostic arc:
 
-- 📈 **[Project 1 — Revenue & Sales Performance Analysis](https://github.com/theammarngp-makes/olist-sales-analysis)** · what happened
-- 🎯 **[Project 2 — E-Commerce RFM Customer Segmentation](https://github.com/theammarngp-makes/ecommerce-rfm-customer-segmentation)** · who matters and why
-- 🔄 **[Project 3 — Customer Cohort Retention Analysis](https://github.com/theammarngp-makes/E-commerce-cohort-retention-analysis)** · how long customers stay
-- 📊 **Project 4 — Monthly Revenue Growth Analysis (this repository)** · where the business is heading
+- **[Project 1 — Revenue & Sales Performance Analysis](https://github.com/theammarngp-makes/olist-sales-analysis)** · what happened
+- **[Project 2 — E-Commerce RFM Customer Segmentation](https://github.com/theammarngp-makes/ecommerce-rfm-customer-segmentation)** · who matters and why
+- **[Project 3 — Customer Cohort Retention Analysis](https://github.com/theammarngp-makes/E-commerce-cohort-retention-analysis)** · how long customers stay
+- **Project 4 — Monthly Revenue Growth Analysis (this repository)** · where the business is heading
 
 ---
 
