@@ -277,4 +277,5 @@ Full detail: [`reports/executive_report.md`](reports/executive_report.md), Secti
 
 ## Author
 
-**Sayyed (Mohammad Ammar)** — [GitHub: theammarngp-makes](https://github.com/theammarngp-makes) · [X: @theammarngp](https://x.com/theammarngp)
+**Mohammad Ammar @Apex-Analyticx** — 
+[GitHub: theammarngp-makes](https://github.com/theammarngp-makes) · [X: @theammarngp](https://x.com/theammarngp)
